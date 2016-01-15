@@ -1,0 +1,9 @@
+1) Begin writing storyline for our game’s development
+2) Make Game.java file as the basis
+3) Make abstract classes Character.java and Monster.java as the basis for the rest of the subclass creature implementation.
+4) Implement character subclasses
+5) Implement monster subclasses
+6) Creation of Battle.java to work with the monsters and characters
+6) Creation of Story.java class along with its methods, and begin integration/mixing the functionalities of the monsters and story. 
+7) Creation of ASCII map and Map.java along with its methods, begin integration of map and game.
+8) Creation of ASCII animations for battle sequences/ASCII art for characters/monsters, to add flavor to the game. Is optional, but will be implemented if there is time.
