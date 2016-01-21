@@ -22,7 +22,7 @@ public class Barbarian extends Character{
     }
     
     public void attack(Monster m, int choice) {
-        if (choice == 1) {
+        /*if (choice == 1) {
             rage();
         }
         else if (choice == 2) {
@@ -36,7 +36,25 @@ public class Barbarian extends Character{
         }
         else {
             System.out.println("That is not a choice.");
-        }
+        }*/
+		System.out.println(choice);
+		switch(choice) {
+			case 1:
+				rage();
+				break;
+			case 2:
+				powerAttack(m);
+				break;
+			case 3:
+				regen();
+				break;
+			case 4:
+				bodySlam(m);
+				break;
+			default:
+				System.out.println("That is not a choice.");
+				break;
+		}
     }
     
     public void rage() {
@@ -64,7 +82,15 @@ public class Barbarian extends Character{
     
     public void bodySlam(Monster m) {
         int damage = m.lowerHP((int)(Math.random() * (stre+5)));
-        int damageTaken = m.lowerHP((int)(Math.random() * (stre+5)/3));
+		System.out.println("PRINTING DAMAGE");
+		System.out.println(damage);
+        int damageTaken = lowerHP((int)((Math.random() * (stre+5))/3));
+		System.out.println("PRINTING DAMAGE TAKEN");
+		System.out.println(damageTaken);
+		System.out.println("MONSTER HEALTH");
+		System.out.println(m.hp);
+		System.out.println("CHARACTER HEALTH");
+		System.out.println(hp);
         System.out.println("You slam the full force of your body, weapons, and armor into the " + m.getName() + ", dealing " + damage + " damage as well as taking " + damageTaken + " yourself.");
     }
 }

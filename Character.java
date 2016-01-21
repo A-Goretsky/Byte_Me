@@ -8,7 +8,7 @@ public abstract class Character {
     }
     
     public int lowerHP(int damage) {
-        hp -= damage - armor;
+        hp -= damage;
         return damage;
     }
     
