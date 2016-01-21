@@ -1,12 +1,21 @@
 public abstract class Monster {
     
     int hp, armor;
+    String name;
     
-    public static void attack();
+    public boolean isAlive() {
+        return hp > 0;
+    }
     
-    public static int lowerHP(int damage) {
+    public int lowerHP(int damage) {
         hp -= damage - armor;
         return damage;
+    }
+    
+    public String attack(Character c);
+    
+    public String getName() {
+        return name;
     }
     
 }

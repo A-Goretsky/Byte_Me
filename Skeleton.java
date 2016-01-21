@@ -3,6 +3,7 @@ public class Skeleton extends Character {
     public Skeleton() {
         hp = 10;
         armor = 5;
+        name = "Skeleton";
     }
     
     public String attack(Character c) {

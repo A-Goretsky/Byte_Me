@@ -7,8 +7,8 @@ public class Game {
 	private static int currentLine = 0;
 	private static int currentRoom = 0;
 	private static boolean inFight = true;
-	private static ArrayList story = new ArrayList();
-	private static ArrayList storyTemp = new ArrayList();
+	private static ArrayList<String> story = new ArrayList<String>();
+	private static ArrayList<String> storyTemp = new ArrayList<String>();
 	private static int characterType;
 	
 	//every single story line will contain a 4 character precursor <room>,<line>,<battle>,---random battle chance<true or false>---
@@ -68,10 +68,10 @@ public class Game {
 		String vars = "";
 		for (String lineTemp : storyTemp) {
 			//var setting not right here.
-			temp = lineTemp.split($);
-			currentLine = temp[0];
-			currentRoom = temp[1];
-			inFight = temp[2];
+			temp = lineTemp.split("$");
+			currentLine = Integer.parseInt(temp[0]);
+			currentRoom = Integer.parseInt(temp[1]);
+			//inFight = temp[2];
 			line = temp[3];
 			story.add(line);
 		}
