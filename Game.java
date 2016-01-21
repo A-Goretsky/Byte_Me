@@ -9,20 +9,24 @@ public class Game {
 	private static boolean inFight = false;
 	private static ArrayList story = new ArrayList();
 	
-	//every single story line will contain a 4 character precursor <room>,<line>,<battle>,<true or false>
+	//every single story line will contain a 4 character precursor <room>,<line>,<battle>,---random battle chance<true or false>---
 	//true or false corresponds to the inFight boolean.
 	
 	private static void interpreter(String input) {
 		if (inFight) {
-			if (input == "map" || input == "log") {
+			switch(input) {
 				//try switch method here
-				System.out.println("Access to map is not permitted during a battle.");
-				System.out.println("Access to the log is not permitted during a battle.");
-				interpreter(input);
-			}
-			else {
-				//passing compiler
-				//Battle.playerTurn(input);
+				case "map": 
+					System.out.println("Access to map is not permitted during a battle.");
+					break;
+					//interpreter(CHANGE TO KEYBOARD input);
+				case "log": 
+					System.out.println("Access to the log is not permitted during a battle.");
+					break;
+					//interpreter(//CHANGE TO KEYBOARD input);
+				default:
+					//passing compiler
+					//Battle.playerTurn(input);
 			}
 		}
 		if ((!inFight) && input == "map") {
@@ -47,7 +51,6 @@ public class Game {
 	}
 	
 	public static void play() {
-		System.out.println("Passing Compiler");
 		System.out.println(story);
 	}
 	
