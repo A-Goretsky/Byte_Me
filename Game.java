@@ -6,9 +6,9 @@ public class Game {
 	
 	private static int currentLine = 0;
 	private static int currentRoom = 0;
-	private static boolean inFight = true;
-	private static ArrayList story = new ArrayList();
-	private static ArrayList storyTemp = new ArrayList();
+	private static boolean inFight = false;
+	private static ArrayList<String> story = new ArrayList<String>();
+	private static ArrayList<String> storyTemp = new ArrayList<String>();
 	private static int characterType;
 	
 	//every single story line will contain a 4 character precursor <room>,<line>,<battle>,---random battle chance<true or false>---
@@ -31,12 +31,13 @@ public class Game {
 					//Battle.playerTurn(input);
 			}
 		}
-		if ((!inFight) && input == "map") {
+		if ((!inFight) && input.equals("map")) {
 			map();
 		}
-		if ((!inFight) && input == "log") {
+		if ((!inFight) && input.equals("log")) {
 			log();
 		}
+		System.out.println("failed all test cases");
 	}
 	
 	private static void printLine(int line) {
@@ -51,7 +52,10 @@ public class Game {
 	
 	private static void log() {
 		System.out.println("Log function not yet implemented.");
-		System.out.println("Passing Compiler");
+		for (String line : story) {
+			System.out.println(line);
+		}
+		System.out.println("Passing Compiler LOG");
 	}
 	
 	public static void play() {
@@ -59,19 +63,15 @@ public class Game {
 		input = Keyboard.readString();
 		System.out.println(story);
 		System.out.println(input);
+		System.out.println("running interpreter");
 		interpreter(input);
 	}
 	
 	private static void separateStory() {
 		String line = "";
-		String[] temp = new String[4];
-		String vars = "";
 		for (String lineTemp : storyTemp) {
-			//var setting not right here.
-			temp = lineTemp.split($);
-			currentLine = temp[0];
-			currentRoom = temp[1];
-			inFight = temp[2];
+			System.out.println(lineTemp);
+			String[] temp = lineTemp.split("\\$");
 			line = temp[3];
 			story.add(line);
 		}
@@ -84,8 +84,8 @@ public class Game {
 			BufferedReader bufferedFile = new BufferedReader(file);
 			while ((line = bufferedFile.readLine()) != null) {
 				storyTemp.add(line);
-				separateStory();
 			}
+			separateStory();
 		}
 		catch (IOException e) {
 			System.out.println("ERROR: Story file missing, or incorrect path.");
