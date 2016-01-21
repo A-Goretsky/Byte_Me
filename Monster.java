@@ -5,7 +5,7 @@ public abstract class Monster {
     public static void attack();
     
     public static int lowerHP(int damage) {
-        hp -= damage;
+        hp -= damage - armor;
         return damage;
     }
     
