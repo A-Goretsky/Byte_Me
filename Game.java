@@ -6,11 +6,7 @@ public class Game {
 	
 	private static int currentLine = 0;
 	private static int currentRoom = 0;
-<<<<<<< HEAD
-	private static boolean inFight = true;
-=======
 	private static boolean inFight = false;
->>>>>>> d24a0e6add7ff21ab9296b1570edfb112c43fed9
 	private static ArrayList<String> story = new ArrayList<String>();
 	private static ArrayList<String> storyTemp = new ArrayList<String>();
 	private static int characterType;
@@ -74,16 +70,8 @@ public class Game {
 	private static void separateStory() {
 		String line = "";
 		for (String lineTemp : storyTemp) {
-<<<<<<< HEAD
-			//var setting not right here.
-			temp = lineTemp.split("$");
-			currentLine = Integer.parseInt(temp[0]);
-			currentRoom = Integer.parseInt(temp[1]);
-			//inFight = temp[2];
-=======
 			System.out.println(lineTemp);
 			String[] temp = lineTemp.split("\\$");
->>>>>>> d24a0e6add7ff21ab9296b1570edfb112c43fed9
 			line = temp[3];
 			story.add(line);
 		}
