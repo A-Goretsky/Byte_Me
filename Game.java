@@ -3,16 +3,16 @@ import java.util.ArrayList;
 
 public class Game {
 	
-	private int currentLine;
-	private int currentRoom;
-	private int currentBattle;
-	private boolean inFight = false;
-	private ArrayList story = new ArrayList();
+	private static int currentLine;
+	private static int currentRoom;
+	private static int currentBattle;
+	private static boolean inFight = false;
+	private static ArrayList story = new ArrayList();
 	
 	//every single story line will contain a 4 character precursor <room>,<line>,<battle>,<true or false>
 	//true or false corresponds to the inFight boolean.
 	
-	private static interpreter(String input) {
+	private static void interpreter(String input) {
 		if (inFight) {
 			if (input == "map" || input == "log") {
 				//try switch method here
@@ -21,7 +21,8 @@ public class Game {
 				interpreter(input);
 			}
 			else {
-				Battle.playerTurn(input);
+				//passing compiler
+				//Battle.playerTurn(input);
 			}
 		}
 		if ((!inFight) && input == "map") {
@@ -32,30 +33,36 @@ public class Game {
 		}
 	}
 	
-	private static printLine(int line) {
+	private static void printLine(int line) {
 		System.out.println("Passing Compiler");
 	}
 	
-	private static map() {
+	private static void map() {
 		System.out.println("Passing Compiler");
 		//Will use the currentLine and currentRoom to determine where to place character in map.
 	}
 	
-	public static play() {
+	private static void log() {
 		System.out.println("Passing Compiler");
-		
 	}
 	
-	private static readFile() {
+	public static void play() {
+		System.out.println("Passing Compiler");
+		System.out.println(story);
+	}
+	
+	private static void readFile() {
+		String line = "";
 		try {
-			FileReader file = new FileReader(story.txt);
+			FileReader file = new FileReader("story.txt");
 			BufferedReader bufferedFile = new BufferedReader(file);
-			while (bufferFile.readline() != null) {
-				story.add(bufferFile.readLine());
+			while ((line = bufferedFile.readLine()) != null) {
+				story.add(line);
 			}
 		}
 		catch (IOException e) {
 			System.out.println("ERROR: Story file missing, or incorrect path.");
+		}
 	}
 	
 	public static void main(String[] args) {
