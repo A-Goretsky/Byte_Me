@@ -3,14 +3,12 @@ import java.util.ArrayList;
 
 public class Game {
 	
-	private static int currentLine;
-	private static int currentRoom;
-	private static int currentBattle;
+	private static int currentLine = 0;
+	private static int currentRoom = 0;
 	private static boolean inFight = false;
 	private static ArrayList story = new ArrayList();
 	
-	//every single story line will contain a 4 character precursor <room>,<line>,<battle>,<true or false>
-	//true or false corresponds to the inFight boolean.
+	//every single story line will contain a 2 character precursor <room>,<line>
 	
 	private static void interpreter(String input) {
 		if (inFight) {
