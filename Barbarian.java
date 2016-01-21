@@ -1,11 +1,11 @@
-public class Barbarian {
+public class Barbarian extends Character{
     
     public Barbarian() {
         hp = 120;
         con = 10;
-        str = 10;
+        stre = 10;
         dex = 10;
-        int = 10;
+        inte = 10;
         wis = 10;
         cha = 10;
         armor = 5;
@@ -21,37 +21,37 @@ public class Barbarian {
         return retStr;
     }
     
-    public String attack(Monster m, int choice) {
+    public void attack(Monster m, int choice) {
         if (choice == 1) {
-            return rage();
+            rage();
         }
         else if (choice == 2) {
-            return powerAttack(m);
+            powerAttack(m);
         }
         else if (choice == 3) {
-            return regen();
+            regen();
         }
         else if (choice == 4) {
-            return bodySlam(m);
+            bodySlam(m);
         }
         else {
-            return "That is not a choice."
+            System.out.println("That is not a choice.");
         }
     }
     
-    public String rage() {
-        str = 20;
+    public void rage() {
+        stre = 20;
         armor = 2;
-        "You enter a bloodthirsty rage."
+        System.out.println("You enter a bloodthirsty rage.");
     }
     
-    public String powerAttack(Monster m) {
-        int damage = m.lowerHP((int)(Math.random() * str));
-        "You slam your weapon devastatingly into the " + m.getName() + " for " + damage + " damage!"
+    public void powerAttack(Monster m) {
+        int damage = m.lowerHP((int)(Math.random() * stre));
+        System.out.println("You slam your weapon devastatingly into the " + m.getName() + " for " + damage + " damage!");
     }
     
-    public String regen() {
-        str = 10;
+    public void regen() {
+        stre = 10;
         armor = 5;
         if (hp+10 > 120) {
             hp = 120;
@@ -59,12 +59,12 @@ public class Barbarian {
         else {
             hp += 10;
         }
-        "You relax your muscles, letting them recuperate much faster."
+        System.out.println("You relax your muscles, letting them recuperate much faster.");
     }
     
-    public String bodySlam() {
-        int damage = m.lowerHP((int)(Math.random() * (str+5));
-        int damageTaken = m.lowerHP((int)(Math.random() * (str+5)/3));
-        "You slam the full force of your body, weapons, and armor into the " + m.getName() + ", dealing " + damage + " damage as well as taking " + damageTaken + " yourself."
+    public void bodySlam(Monster m) {
+        int damage = m.lowerHP((int)(Math.random() * (stre+5)));
+        int damageTaken = m.lowerHP((int)(Math.random() * (stre+5)/3));
+        System.out.println("You slam the full force of your body, weapons, and armor into the " + m.getName() + ", dealing " + damage + " damage as well as taking " + damageTaken + " yourself.");
     }
 }

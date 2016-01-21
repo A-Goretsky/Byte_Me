@@ -4,7 +4,7 @@ public class Battle {
     
     int turnCounter = 0;
     
-    public void playerTurn(Character c) {
+    public void playerTurn(Character c, Monster m) {
         int choice;
         System.out.println(c.moveList());
         System.out.print("Selection: ");
@@ -13,14 +13,15 @@ public class Battle {
     }
     
     public void Turn(Character c, Monster m) {
-        playerTurn(c);
-        if !(m.isAlive()) {
+        playerTurn(c, m);
+        if (!(m.isAlive())) {
             System.out.println("You have defeated the monster!");
             return;
         }
         m.attack(c);
-        if !(c.isAlive()) {
+        if (!(c.isAlive())) {
             System.out.println("You were slain by the monster.");
+			return;
         }
         turnCounter += 1;
         Turn(c, m);

@@ -59,12 +59,16 @@ public class Game {
 	}
 	
 	public static void play() {
+		Barbarian test1 = new Barbarian();
+		Skeleton test2 = new Skeleton();
 		String input;
-		input = Keyboard.readString();
+		//input = Keyboard.readString();
 		System.out.println(story);
-		System.out.println(input);
+		//System.out.println(input);
 		System.out.println("running interpreter");
-		interpreter(input);
+		//interpreter(input);
+		Battle test = new Battle();
+		test.Turn(test1, test2);
 	}
 	
 	private static void separateStory() {
@@ -96,5 +100,10 @@ public class Game {
 		readFile();
 		play();
 	}
+	
+	//when enter new room, random chance of battle
+	//when battle, Battle test = new Battle();
+	//test.Turn(Barbarian, Skeleton);
+	
 	
 }

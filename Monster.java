@@ -12,7 +12,7 @@ public abstract class Monster {
         return damage;
     }
     
-    public String attack(Character c);
+    public abstract void attack(Character c);
     
     public String getName() {
         return name;

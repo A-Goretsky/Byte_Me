@@ -1,6 +1,6 @@
 public abstract class Character {
     
-    int hp, con, str, dex, int, cha, wis, armor;
+    int hp, con, stre, dex, inte, cha, wis, armor;
     String name;
     
     public boolean isAlive() {
@@ -12,9 +12,9 @@ public abstract class Character {
         return damage;
     }
     
-    public String attack(Monster m);
+    public abstract void attack(Monster m, int choice);
     
-    public String moveList();
+    public abstract String moveList();
     
     public String getName() {
         return name;
