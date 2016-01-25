@@ -1,3 +1,9 @@
-0$0$false$false$0$Line 0
-1$0$true$false$70$Line 1
-2$0$true$true$0$Line 2
+0$0$false$false$0$-Welcome to the game. To progress throughout the game, type "next"
+1$0$false$false$0$-To view the log to remind you of the storyline, type "log"
+2$0$false$false$0$-To view the map, type "map"
+3$0$false$false$0$-During battle, enter the attack's corresponding number. (Will be listed.)
+4$0$false$false$0$-First line, no chance of anything.
+5$0$true$false$70$-70% Chance of Battle Here.
+6$0$true$true$0$-Boss Battle Boolean Test
+7$1$true$false$100$-This is a full battle, 100% chance.
+8$1$false$false$0$-End of Game. The game will end with an error after you type next.

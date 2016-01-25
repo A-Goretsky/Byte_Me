@@ -15,16 +15,15 @@ public class Battle {
     public void Turn(Character c, Monster m) {
         playerTurn(c, m);
         if (!(m.isAlive())) {
-            System.out.println("You have defeated the monster!");
+            System.out.println("*********You have defeated the monster!*********");
             return;
         }
         m.attack(c);
         if (!(c.isAlive())) {
-            System.out.println("You were slain by the monster.");
+            System.out.println("*********You were slain by the monster.*********");
 			return;
         }
         turnCounter += 1;
         Turn(c, m);
     }
-    
 }

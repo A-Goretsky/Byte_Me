@@ -4,6 +4,7 @@ import cs1.Keyboard;
 
 public class Game {
 	
+	private static String currentLines = "";
 	private static int currentLine = -1;
 	private static int currentRoom = 0;
 	private static boolean inFight = false;
@@ -70,19 +71,13 @@ public class Game {
 			for (int x = 0; x < currentLine; x++) {
 				System.out.println(story.get(x));
 			}
-			System.out.println("Reprinting current story line:");
+			System.out.println("REPRINTING CURRENT STORY LINE:");
 			System.out.println(story.get(currentLine));
 		}
 	}
 	
 	public static void play() {
 		String input = "";
-		nextLine();
-		input = Keyboard.readString();
-		interpreter(input);
-		nextLine();
-		input = Keyboard.readString();
-		interpreter(input);
 		nextLine();
 		input = Keyboard.readString();
 		interpreter(input);
@@ -98,13 +93,23 @@ public class Game {
 		test.Turn(test1, test2);*/
 	}
 	
+	public static void basicBattle() {
+		String input = "";
+		Battle one = new Battle();
+		Barbarian test1 = new Barbarian();
+		Skeleton test2 = new Skeleton();
+		one.Turn(test1, test2);
+		System.out.println("REPRINTING CURRENT LINE:");
+		System.out.println(currentLines);
+		input = Keyboard.readString();
+		interpreter(input);
+	}
+	
 	//Separate story method is complete.
 	private static void separateStory() {
 		String line = "";
 		for (String lineTemp : storyTemp) {
-			System.out.println(lineTemp);
 			String[] temp = lineTemp.split("\\$");
-			System.out.println(temp[5]);
 			line = temp[5];
 			story.add(line);
 		}
@@ -115,10 +120,11 @@ public class Game {
 		System.out.println("Battle Chance Initiated");
 		int x = (int) (Math.random() * 100);
 		if (x < chance) {
-			System.out.println("Battle is Possible");
+			System.out.println("Battle will occur");
+			basicBattle();
 		}
 		else {
-			System.out.println("Battle is not possible");
+			System.out.println("Battle will not occur");
 		}
 		input = Keyboard.readString();
 		interpreter(input);
@@ -137,6 +143,7 @@ public class Game {
 		String lineTemp = storyTemp.get(currentLine);
 		String[] temp = lineTemp.split("\\$");
 		currentRoom = Integer.parseInt(temp[1]);
+		currentLines = temp[5];
 		System.out.println(temp[5]);
 		if (Boolean.parseBoolean(temp[2])) {
 			if (Boolean.parseBoolean(temp[3])) {

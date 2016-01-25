@@ -67,10 +67,10 @@ public class Barbarian extends Character{
     
     public void bodySlam(Monster m) {
         int damage = m.lowerHP((int)(Math.random() * (stre+5)));
-		System.out.println("PRINTING DAMAGE");
+		System.out.println("PRINTING DAMAGE DONE TO MONSTER");
 		System.out.println(damage);
         int damageTaken = lowerHP((int)((Math.random() * (stre+5))/3));
-		System.out.println("PRINTING DAMAGE TAKEN");
+		System.out.println("PRINTING DAMAGE TAKEN FROM MONSTER");
 		System.out.println(damageTaken);
 		System.out.println("MONSTER HEALTH");
 		System.out.println(m.hp);
