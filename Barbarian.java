@@ -22,21 +22,6 @@ public class Barbarian extends Character{
     }
     
     public void attack(Monster m, int choice) {
-        /*if (choice == 1) {
-            rage();
-        }
-        else if (choice == 2) {
-            powerAttack(m);
-        }
-        else if (choice == 3) {
-            regen();
-        }
-        else if (choice == 4) {
-            bodySlam(m);
-        }
-        else {
-            System.out.println("That is not a choice.");
-        }*/
 		System.out.println(choice);
 		switch(choice) {
 			case 1:
