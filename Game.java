@@ -46,6 +46,13 @@ public class Game {
 			interpreter(Keyboard.readString());
 		}
 		if ((!inFight) && input.equals("next")) {
+			System.out.println("DISPLAYING currentLine");
+			System.out.println(currentLine);
+			System.out.println("DISPLAYING story.size() - 1");
+			System.out.println(story.size() - 1);
+			if (currentLine == (story.size() - 1)) {
+				return;
+			}
 			nextLine();
 			interpreter(Keyboard.readString());
 		}
@@ -53,6 +60,7 @@ public class Game {
 			System.out.println("UNRECORGNIZED COMMAND:" + " **" + input + "** " + "Please try again.");
 			interpreter(Keyboard.readString());
 		}
+		System.out.println("Interpreter over?");
 	}
 	
 	private static void map() {
@@ -78,9 +86,13 @@ public class Game {
 	
 	public static void play() {
 		String input = "";
+		System.out.println("PLAY FUNCTION RUNS NEXTLINE");
 		nextLine();
+		System.out.println("PLAY FUNCTION RUNS KEYBOARD READSTRING");
 		input = Keyboard.readString();
+		System.out.println("PLAY FUNCTION RUNS INTERPRETER");
 		interpreter(input);
+		System.out.println("PLAY FUNCTION OVER????");
 		/*Barbarian test1 = new Barbarian();
 		Skeleton test2 = new Skeleton();
 		String input;
@@ -91,6 +103,33 @@ public class Game {
 		//interpreter(input);
 		Battle test = new Battle();
 		test.Turn(test1, test2);*/
+	}
+	
+	/*private static void makeChar(input) {
+		switch(input) {
+			case 1:
+				Barbarian char = new Barbarian();
+				break;
+			default:
+				System.out.println("UNRECOGNIZED NUMBER. Please Try Again.");
+				makeChar(input);
+				break;
+		}
+	}
+	*/
+	/*private static void setName(input) {
+		
+	}*/
+	
+	private static void characterCreation() {
+		String input = "";
+		System.out.println("Create your character. Choose the number corresponding to the class.");
+		System.out.println("1: Barbarian");
+		input = Keyboard.readString();
+		//makeChar(input);
+		System.out.println("What is your name?");
+		input = Keyboard.readString();
+		//setname(input);
 	}
 	
 	public static void basicBattle() {
@@ -169,6 +208,11 @@ public class Game {
 		catch (IOException e) {
 			System.out.println("ERROR: Story file missing, or incorrect path.");
 		}
+	}
+	
+	private static void makeSave() {
+		//Current Line | Current Room | Character Type | Current Line (text)
+		
 	}
 	
 	//Main method is complete.
